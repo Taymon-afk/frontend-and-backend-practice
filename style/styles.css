@@ -170,3 +170,147 @@ body {
  padding: 30px; /* Внутренние отступы */
  margin-top: 50px; /* Отступ сверху */
 }
+/* ==== ОБЩИЕ СТИЛИ ДЛЯ ВСЕХ СТРАНИЦ ==== */
+.page-title {
+    font-size: 32px;
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* ==== СТИЛИ ДЛЯ СТРАНИЦЫ НОВОСТЕЙ ==== */
+.news-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.news-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-left: 4px solid #667eea;
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateX(5px);
+}
+
+.news-title {
+    font-size: 22px;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.news-meta {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+}
+
+.news-text {
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==== СТИЛИ ДЛЯ СТРАНИЦЫ ТОВАРОВ ==== */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.product-title {
+    font-size: 18px;
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.product-price {
+    color: #667eea;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* ==== СТИЛИ ДЛЯ СТРАНИЦЫ КОНТАКТОВ ==== */
+.contact-container {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 25px;
+    border-radius: 15px;
+    margin: 30px 0;
+    border-left: 5px solid #667eea;
+}
+
+.contact-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* ==== СТИЛИ ДЛЯ СТРАНИЦЫ ПРАКТИК ==== */
+.practices-container {
+    text-align: center;
+}
+
+.practices-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.practice-item {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    color: white;
+    padding: 15px 25px;
+    margin: 10px 0;
+    border-radius: 25px;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 200px;
+}
