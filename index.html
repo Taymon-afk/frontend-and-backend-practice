@@ -4,59 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Семестровая работа</title>
+    <link rel="stylesheet" href="style/styles.css">
 </head>
 <body>
-    <div id="header">
-        <h1>Хэдер</h1>
-    </div>
-    <div id="menu">
-        <ul>
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="pages/news.html">Новости</a></li>
-            <li><a href="pages/practices.html">Практики</a></li>
-            <li><a href="pages/goods.html">Товары</a></li>
-            <li><a href="pages/contacts.html">Контакты</a></li>
-        </ul>
-    </div>
-    <div id="content">
-        <h2>Информация об авторе</h2>
-        <!-- Фото автора -->
-        <img src="images/photo.png" alt="Фото автора" width="200" height="250">
-        <!-- ФИО и группа -->
-        <h3><Болотаев Артём Денисович></h3>
-        <p>ЭФБО-05-24</p>
-        <!-- Блок "Обо мне" -->
-        <div>
-            <h4>Обо мне:</h4>
-            <p>Студент РТУ МИРЭА</p>
+    <div class="page-container">
+        <div class="header">Хэдер</div>
+        <div class="nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/practices.html">Практики</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
+                <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
+            </ul>
         </div>
-        <!-- Блоки навыков -->
-        <div>
-            <h4>Навыки:</h4>
-            <div>Умный</div>
-            <div>Смелый</div>
-            <div>Добрый</div>
-            <div>Крутой</div>
-        </div>       
-        <!-- Блок опыта работы -->
-        <div>
-            <h4>Мой опыт работы:</h4>
-            <div>
-                <strong>Опыт 1</strong><br>
-                Работал на выставках
+        <div class="content">
+            <div class="profile-header">
+                <h1 class="profile-title">Информация об авторе</h1>
+                <img class="profile-photo" src="images/photo.png" alt="Фото автора">
+                <h2 class="profile-name">Болотаев Артём Денисович</h2>
+                <p class="profile-group">ЭФБО-05-24</p>
             </div>
-            <div>
-                <strong>Опыт 2</strong><br>
-                Работал в онлайн школе по подготовке к ЕГЭ
+            
+            <div class="about-me">
+                <h4>Обо мне:</h4>
+                <p>Студент РТУ МИРЭА</p>
             </div>
-            <div>
-                <strong>Опыт 3</strong><br>
-                Крутой пацык
+            
+            <div class="skills-container">
+                <h4>Навыки:</h4>
+                <div class="skill-tag">Умный</div>
+                <div class="skill-tag">Смелый</div>
+                <div class="skill-tag">Добрый</div>
+                <div class="skill-tag">Крутой</div>
+            </div>
+            
+            <div class="experience-section">
+                <h2 class="section-title">Мой опыт работы</h2>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 1</h3>
+                    <p class="experience-desc">Работал на выставках</p>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 2</h3>
+                    <p class="experience-desc">Работал в онлайн школе по подготовке к ЕГЭ</p>
+                </div>
+                <div class="experience-card">
+                    <h3 class="experience-title">Опыт 3</h3>
+                    <p class="experience-desc">Крутой пацык</p>
+                </div>
             </div>
         </div>
-        <div id="footer">
-            <p>Футер</p>
-        </div>
+        <div class="footer">Футер</div>
     </div>
 </body>
 </html>
