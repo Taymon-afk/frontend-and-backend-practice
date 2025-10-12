@@ -242,7 +242,7 @@ body {
 .product-image {
     width: 150px;
     height: 150px;
-    object-fit: cover;
+    object-fit: contain; 
     border-radius: 8px;
     margin-bottom: 15px;
 }
