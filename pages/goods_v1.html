@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товары - Портфолио</title>
+    <link rel="stylesheet" href="../style/styles.css">
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+            <h1 class="header__title">Портфолио</h1>
+            <button class="theme-switcher" id="themeSwitcher">
+                <span class="theme-switcher__icon">🌙</span>
+                <span class="theme-switcher__text">Тёмная тема</span>
+            </button>
+        </header>
+
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a class="nav__link" href="../index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="practices.html">Практики</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main">
+            <h1 class="page-title">Каталог товаров</h1>
+            
+            <section class="goods">
+                <div class="goods__grid">
+                    <!-- Товар 1 - скидка и новинка -->
+                    <article class="good-card good-card--discount good-card--new" data-product-id="1">
+                        <img src="../images/goods1.jpg" alt="Мармеладки" class="good-card__image">
+                        <div class="good-card__content">
+                            <h3 class="good-card__title">Мармеладки</h3>
+                            <div class="good-card__price">
+                                <span class="good-card__price--old">1500 руб.</span>
+                                <span class="good-card__price--current">1000 руб.</span>
+                            </div>
+                            <p class="good-card__description">
+                                Вкусные мармеладки ручной работы. Изготовлены из натуральных ингредиентов без искусственных красителей.
+                            </p>
+                            <div class="good-card__actions">
+                                <button class="btn btn--primary good-card__buy">Купить</button>
+                                <button class="btn btn--secondary good-card__details">Подробнее</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Товар 2 - обычный -->
+                    <article class="good-card" data-product-id="2">
+                        <img src="../images/goods2.jpg" alt="Чайник" class="good-card__image">
+                        <div class="good-card__content">
+                            <h3 class="good-card__title">Чайник</h3>
+                            <div class="good-card__price">
+                                <span class="good-card__price--current">1500 руб.</span>
+                            </div>
+                            <p class="good-card__description">
+                                Современный электрический чайник с функцией поддержания температуры. Быстрый нагрев и безопасность.
+                            </p>
+                            <div class="good-card__actions">
+                                <button class="btn btn--primary good-card__buy">Купить</button>
+                                <button class="btn btn--secondary good-card__details">Подробнее</button>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Товар 3 - нет в наличии -->
+                    <article class="good-card good-card--out-of-stock" data-product-id="3">
+                        <img src="../images/goods3.jpg" alt="Баленсочка" class="good-card__image">
+                        <div class="good-card__content">
+                            <h3 class="good-card__title">Баленсочка</h3>
+                            <div class="good-card__price">
+                                <span class="good-card__price--current">2000 руб.</span>
+                            </div>
+                            <p class="good-card__description">
+                                Уютная баленсочка из натуральной шерсти. Отлично подходит для холодных вечеров.
+                            </p>
+                            <div class="good-card__actions">
+                                <button class="btn btn--primary good-card__buy" disabled>Купить</button>
+                                <button class="btn btn--secondary good-card__details">Подробнее</button>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Товар 4 - выбранный -->
+                    <article class="good-card good-card--selected" data-product-id="4">
+                        <img src="../images/goods4.jpg" alt="Книга" class="good-card__image">
+                        <div class="good-card__content">
+                            <h3 class="good-card__title">Книга по программированию</h3>
+                            <div class="good-card__price">
+                                <span class="good-card__price--current">800 руб.</span>
+                            </div>
+                            <p class="good-card__description">
+                                Современное руководство по веб-разработке. Актуальные технологии и лучшие практики.
+                            </p>
+                            <div class="good-card__actions">
+                                <button class="btn btn--primary good-card__buy">В корзине</button>
+                                <button class="btn btn--secondary good-card__details">Подробнее</button>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Модальное окно товара -->
+        <dialog class="modal" id="productModal">
+            <div class="modal__header">
+                <h2 class="modal__header__title">Информация о товаре</h2>
+            </div>
+
+            <div class="modal__content">
+                <img id="modalProductImage" src="" alt="" class="good-card__image good-card__image--modal">
+                
+                <div class="modal__product-info">
+                    <h3 id="modalProductName" class="modal__product-name"></h3>
+                    <p id="modalProductPrice" class="modal__product-price"></p>
+                </div>
+
+                <p id="modalProductDescription" class="modal__product-description"></p>
+
+                <div class="modal__product-features">
+                    <h4 class="modal__features-title">Особенности:</h4>
+                    <ul id="modalProductFeatures" class="modal__features-list"></ul>
+                </div>
+
+                <div class="modal__actions">
+                    <button type="button" class="btn btn--secondary" onclick="closeProductModal()">Закрыть</button>
+                    <button type="button" class="btn btn--primary" onclick="buyProduct()">Купить сейчас</button>
+                </div>
+            </div>
+        </dialog>
+
+        <footer class="footer">
+            <p class="footer__text">© 2025 Портфолио Болотаева Артёма</p>
+        </footer>
+    </div>
+
+    <script>
+        // Переключатель темы
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcon = themeSwitcher.querySelector('.theme-switcher__icon');
+        const themeText = themeSwitcher.querySelector('.theme-switcher__text');
+        
+        themeSwitcher.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            if (newTheme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Светлая тема';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Тёмная тема';
+            }
+            
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        if (savedTheme === 'dark') {
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Светлая тема';
+        }
+
+        // Данные товаров
+        const products = {
+            1: {
+                name: 'Мармеладки',
+                price: '1000 руб.',
+                image: '../images/goods1.jpg',
+                description: 'Вкусные мармеладки ручной работы. Изготовлены из натуральных ингредиентов без искусственных красителей. Идеальный подарок для сладкоежек!',
+                features: ['Натуральные ингредиенты', 'Без искусственных красителей', 'Разные вкусы', 'Подарочная упаковка'],
+                oldPrice: '1500 руб.'
+            },
+            2: {
+                name: 'Чайник',
+                price: '1500 руб.',
+                image: '../images/goods2.jpg',
+                description: 'Современный электрический чайник с функцией поддержания температуры. Быстрый нагрев, безопасность использования и стильный дизайн.',
+                features: ['Электрический', 'Поддержание температуры', 'Быстрый нагрев', 'Безопасный']
+            },
+            3: {
+                name: 'Баленсочка',
+                price: '2000 руб.',
+                image: '../images/goods3.jpg',
+                description: 'Уютная баленсочка из натуральной шерсти. Отлично подходит для холодных вечеров. Доступна в разных размерах и цветах.',
+                features: ['Натуральная шерсть', 'Разные размеры', 'Уютная и теплая', 'Качественная вязка']
+            },
+            4: {
+                name: 'Книга по программированию',
+                price: '800 руб.',
+                image: '../images/goods4.jpg',
+                description: 'Современное руководство по веб-разработке. Актуальные технологии и лучшие практики для начинающих и опытных разработчиков.',
+                features: ['Актуальные технологии', 'Практические примеры', 'Лучшие практики', 'Для всех уровней']
+            }
+        };
+
+        // Открытие модального окна товара
+        function openProductModal(productId) {
+            const product = products[productId];
+            if (!product) return;
+
+            const modal = document.getElementById('productModal');
+            document.getElementById('modalProductName').textContent = product.name;
+            document.getElementById('modalProductPrice').textContent = product.price;
+            document.getElementById('modalProductImage').src = product.image;
+            document.getElementById('modalProductImage').alt = product.name;
+            document.getElementById('modalProductDescription').textContent = product.description;
+            
+            // Очищаем и заполняем список особенностей
+            const featuresList = document.getElementById('modalProductFeatures');
+            featuresList.innerHTML = '';
+            product.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                li.className = 'modal__feature-item';
+                featuresList.appendChild(li);
+            });
+            
+            modal.showModal();
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').close();
+        }
+
+        function buyProduct() {
+            const productName = document.getElementById('modalProductName').textContent;
+            const productPrice = document.getElementById('modalProductPrice').textContent;
+            
+            alert(`Спасибо за покупку! Товар "${productName}" за ${productPrice} добавлен в корзину.`);
+            closeProductModal();
+        }
+
+        // Обработчики событий для карточек товаров
+        document.querySelectorAll('.good-card__details').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const productId = this.closest('.good-card').getAttribute('data-product-id');
+                openProductModal(productId);
+            });
+        });
+
+        document.querySelectorAll('.good-card__buy:not(:disabled)').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const productCard = this.closest('.good-card');
+                const productId = productCard.getAttribute('data-product-id');
+                const product = products[productId];
+                
+                if (product) {
+                    // Добавляем класс выбранного товара
+                    productCard.classList.add('good-card--selected');
+                    this.textContent = 'В корзине';
+                    this.disabled = true;
+                    
+                    alert(`Товар "${product.name}" добавлен в корзину!`);
+                }
+            });
+        });
+
+        // Открытие модального окна при клике на карточку
+        document.querySelectorAll('.good-card:not(.good-card--out-of-stock)').forEach(card => {
+            card.addEventListener('click', function() {
+                const productId = this.getAttribute('data-product-id');
+                openProductModal(productId);
+            });
+        });
+
+        // Закрытие модального окна
+        document.getElementById('productModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                this.close();
+            }
+        });
+
+        document.getElementById('productModal').addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                this.close();
+            }
+        });
+
+        // Имитация выбора товара при загрузке (для демонстрации)
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectedCard = document.querySelector('.good-card--selected');
+            if (selectedCard) {
+                const buyButton = selectedCard.querySelector('.good-card__buy');
+                if (buyButton) {
+                    buyButton.textContent = 'В корзине';
+                    buyButton.disabled = true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

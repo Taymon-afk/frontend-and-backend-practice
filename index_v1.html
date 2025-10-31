@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная - Портфолио</title>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+    <!-- Основной контейнер -->
+    <div class="page">
+
+        <!-- Шапка -->
+        <header class="header">
+            <h1 class="header__title">Моё портфолио</h1>
+            <button class="theme-switcher" id="themeSwitcher">
+                <span class="theme-switcher__icon">🌙</span>
+                <span class="theme-switcher__text">Тёмная тема</span>
+            </button>
+        </header>
+
+        <!-- Навигация -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item nav__item--active">
+                    <a class="nav__link" href="index.html">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/practices.html">Практики</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/goods.html">Товары</a>
+                </li>
+                <li class="nav__item">
+                    <a class="nav__link" href="pages/contacts.html">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Основной контент -->
+        <main class="main">
+
+            <!-- Профиль -->
+            <section class="profile">
+                <div class="profile__card">
+                    <img class="profile__photo" src="images/photo.png" alt="Фото автора">
+                    <div class="profile__info">
+                        <h2 class="profile__name">Болотаев Артём Денисович</h2>
+                        <p class="profile__group">ЭФБО-05-24</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Обо мне -->
+            <section class="about">
+                <h2 class="about__title">Обо мне</h2>
+                <div class="about__content">
+                    <p class="about__text">
+                        Студент РТУ МИРЭА. Учусь на втором курсе. Хочу стать крутым фулл-стек разработчиком. 
+                        Люблю программирование и создавать красивые и функциональные сайты.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Навыки -->
+            <section class="skills">
+                <h2 class="skills__title">Мои навыки</h2>
+                <div class="skills__list">
+                    <div class="skill skill--html">
+                        <span class="skill__name">HTML/CSS</span>
+                    </div>
+                    <div class="skill skill--css">
+                        <span class="skill__name">JavaScript</span>
+                    </div>
+                    <div class="skill skill--js">
+                        <span class="skill__name">React</span>
+                    </div>
+                    <div class="skill skill--other">
+                        <span class="skill__name">Node.js</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Опыт работы -->
+            <section class="projects">
+                <h2 class="projects__title">Мой опыт работы</h2>
+                <div class="projects__grid">
+                    <div class="project-card">
+                        <h3 class="project-card__title">Опыт 1</h3>
+                        <p class="project-card__desc">Репетитор по математике</p>
+                    </div>
+                    <div class="project-card project-card--featured">
+                        <h3 class="project-card__title">Опыт 2</h3>
+                        <p class="project-card__desc">Программист</p>
+                    </div>
+                    <div class="project-card project-card--completed">
+                        <h3 class="project-card__title">Опыт 3</h3>
+                        <p class="project-card__desc">Повар</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Подвал -->
+        <footer class="footer">
+            <p class="footer__text">© 2025 Портфолио Болотаева Артёма</p>
+        </footer>
+    </div>
+
+    <script>
+        // Переключатель темы (ЗАДАЧА 4)
+        const themeSwitcher = document.getElementById('themeSwitcher');
+        const themeIcon = themeSwitcher.querySelector('.theme-switcher__icon');
+        const themeText = themeSwitcher.querySelector('.theme-switcher__text');
+        
+        themeSwitcher.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            
+            // Обновляем иконку и текст
+            if (newTheme === 'dark') {
+                themeIcon.textContent = '☀️';
+                themeText.textContent = 'Светлая тема';
+            } else {
+                themeIcon.textContent = '🌙';
+                themeText.textContent = 'Тёмная тема';
+            }
+            
+            // Сохраняем в localStorage
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        // Загружаем сохранённую тему
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        
+        if (savedTheme === 'dark') {
+            themeIcon.textContent = '☀️';
+            themeText.textContent = 'Светлая тема';
+        }
+    </script>
+</body>
+</html>

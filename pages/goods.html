@@ -1,315 +1,527 @@
 <!DOCTYPE html>
-<html lang="ru" data-theme="light">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Товары - Портфолио</title>
-    <link rel="stylesheet" href="../style/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        .product-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card {
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .discount-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 2;
+        }
+        .new-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 2;
+        }
+    </style>
 </head>
-<body>
-    <div class="page">
-        <header class="header">
-            <h1 class="header__title">Портфолио</h1>
-            <button class="theme-switcher" id="themeSwitcher">
-                <span class="theme-switcher__icon">🌙</span>
-                <span class="theme-switcher__text">Тёмная тема</span>
-            </button>
+<body class="bg-light">
+    <div class="container-fluid p-0">
+        <!-- Header -->
+        <header class="bg-primary text-white py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h1 class="h3 mb-1">Моё Портфолио</h1>
+                        <p class="mb-0 opacity-75">Каталог товаров</p>
+                    </div>
+                    <div class="col-auto">
+                        <span class="badge bg-light text-primary">ЭФБО-05-24</span>
+                    </div>
+                </div>
+            </div>
         </header>
 
-        <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item">
-                    <a class="nav__link" href="../index.html">Главная</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="news.html">Новости</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="practices.html">Практики</a>
-                </li>
-                <li class="nav__item nav__item--active">
-                    <a class="nav__link" href="goods.html">Товары</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="contacts.html">Контакты</a>
-                </li>
-            </ul>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">
+                                <i class="bi bi-house me-1"></i>Главная
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.html">
+                                <i class="bi bi-newspaper me-1"></i>Новости
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="practices.html">
+                                <i class="bi bi-code-slash me-1"></i>Практики
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="goods.html">
+                                <i class="bi bi-cart me-1"></i>Товары
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacts.html">
+                                <i class="bi bi-telephone me-1"></i>Контакты
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
 
-        <main class="main">
-            <h1 class="page-title">Каталог товаров</h1>
-            
-            <section class="goods">
-                <div class="goods__grid">
-                    <!-- Товар 1 - скидка и новинка -->
-                    <article class="good-card good-card--discount good-card--new" data-product-id="1">
-                        <img src="../images/goods1.jpg" alt="Мармеладки" class="good-card__image">
-                        <div class="good-card__content">
-                            <h3 class="good-card__title">Мармеладки</h3>
-                            <div class="good-card__price">
-                                <span class="good-card__price--old">1500 руб.</span>
-                                <span class="good-card__price--current">1000 руб.</span>
-                            </div>
-                            <p class="good-card__description">
-                                Вкусные мармеладки ручной работы. Изготовлены из натуральных ингредиентов без искусственных красителей.
-                            </p>
-                            <div class="good-card__actions">
-                                <button class="btn btn--primary good-card__buy">Купить</button>
-                                <button class="btn btn--secondary good-card__details">Подробнее</button>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- Товар 2 - обычный -->
-                    <article class="good-card" data-product-id="2">
-                        <img src="../images/goods2.jpg" alt="Чайник" class="good-card__image">
-                        <div class="good-card__content">
-                            <h3 class="good-card__title">Чайник</h3>
-                            <div class="good-card__price">
-                                <span class="good-card__price--current">1500 руб.</span>
-                            </div>
-                            <p class="good-card__description">
-                                Современный электрический чайник с функцией поддержания температуры. Быстрый нагрев и безопасность.
-                            </p>
-                            <div class="good-card__actions">
-                                <button class="btn btn--primary good-card__buy">Купить</button>
-                                <button class="btn btn--secondary good-card__details">Подробнее</button>
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <!-- Товар 3 - нет в наличии -->
-                    <article class="good-card good-card--out-of-stock" data-product-id="3">
-                        <img src="../images/goods3.jpg" alt="Баленсочка" class="good-card__image">
-                        <div class="good-card__content">
-                            <h3 class="good-card__title">Баленсочка</h3>
-                            <div class="good-card__price">
-                                <span class="good-card__price--current">2000 руб.</span>
-                            </div>
-                            <p class="good-card__description">
-                                Уютная баленсочка из натуральной шерсти. Отлично подходит для холодных вечеров.
-                            </p>
-                            <div class="good-card__actions">
-                                <button class="btn btn--primary good-card__buy" disabled>Купить</button>
-                                <button class="btn btn--secondary good-card__details">Подробнее</button>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Товар 4 - выбранный -->
-                    <article class="good-card good-card--selected" data-product-id="4">
-                        <img src="../images/goods4.jpg" alt="Книга" class="good-card__image">
-                        <div class="good-card__content">
-                            <h3 class="good-card__title">Книга по программированию</h3>
-                            <div class="good-card__price">
-                                <span class="good-card__price--current">800 руб.</span>
-                            </div>
-                            <p class="good-card__description">
-                                Современное руководство по веб-разработке. Актуальные технологии и лучшие практики.
-                            </p>
-                            <div class="good-card__actions">
-                                <button class="btn btn--primary good-card__buy">В корзине</button>
-                                <button class="btn btn--secondary good-card__details">Подробнее</button>
-                            </div>
-                        </div>
-                    </article>
+        <!-- Main Content -->
+        <main class="container my-4">
+            <!-- Page Title -->
+            <div class="row mb-4">
+                <div class="col">
+                    <h1 class="h2 text-primary">
+                        <i class="bi bi-cart3 me-2"></i>Каталог товаров
+                    </h1>
+                    <p class="text-muted">Выберите товары из нашего каталога</p>
                 </div>
-            </section>
+                <div class="col-auto">
+                    <div class="btn-group">
+                        <button class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-filter me-1"></i>Фильтр
+                        </button>
+                        <button class="btn btn-outline-primary btn-sm">
+                            <i class="bi bi-sort-down me-1"></i>Сортировка
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="row g-4">
+                <!-- Product 1 - With Discount -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card shadow-sm h-100 position-relative">
+                        <span class="discount-badge badge bg-danger">СКИДКА -33%</span>
+                        <span class="new-badge badge bg-success">НОВИНКА</span>
+                        <img src="../images/goods1.jpg" class="card-img-top product-img" alt="Мармеладки">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Мармеладки ручной работы</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                                Вкусные мармеладки из натуральных ингредиентов без искусственных красителей.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <div>
+                                        <span class="h5 text-primary mb-0">1000 ₽</span>
+                                        <small class="text-muted text-decoration-line-through ms-2">1500 ₽</small>
+                                    </div>
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-star-fill me-1"></i>4.8
+                                    </span>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" onclick="openProductModal(1)">
+                                        <i class="bi bi-eye me-1"></i>Подробнее
+                                    </button>
+                                    <button class="btn btn-outline-success" onclick="addToCart(1)">
+                                        <i class="bi bi-cart-plus me-1"></i>В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 - Normal -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card shadow-sm h-100">
+                        <img src="../images/goods2.jpg" class="card-img-top product-img" alt="Чайник">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Электрический чайник</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                                Современный чайник с функцией поддержания температуры и быстрым нагревом.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="h5 text-primary mb-0">1500 ₽</span>
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-star-fill me-1"></i>4.6
+                                    </span>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" onclick="openProductModal(2)">
+                                        <i class="bi bi-eye me-1"></i>Подробнее
+                                    </button>
+                                    <button class="btn btn-outline-success" onclick="addToCart(2)">
+                                        <i class="bi bi-cart-plus me-1"></i>В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 - Out of Stock -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card shadow-sm h-100 position-relative">
+                        <div class="position-absolute top-0 start-0 end-0 bottom-0 bg-light bg-opacity-75 d-flex align-items-center justify-content-center">
+                            <span class="badge bg-danger fs-6 p-3">НЕТ В НАЛИЧИИ</span>
+                        </div>
+                        <img src="../images/goods3.jpg" class="card-img-top product-img" alt="Баленсочка">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Тёплая баленсочка</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                                Уютная баленсочка из натуральной шерсти для холодных вечеров.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="h5 text-primary mb-0">2000 ₽</span>
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-star-fill me-1"></i>4.9
+                                    </span>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" onclick="openProductModal(3)">
+                                        <i class="bi bi-eye me-1"></i>Подробнее
+                                    </button>
+                                    <button class="btn btn-outline-secondary" disabled>
+                                        <i class="bi bi-cart-x me-1"></i>Недоступно
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 - In Cart -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card shadow-sm h-100 border-primary">
+                        <span class="new-badge badge bg-info">ПОПУЛЯРНЫЙ</span>
+                        <img src="../images/goods4.jpg" class="card-img-top product-img" alt="Книга">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Книга по программированию</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                                Современное руководство по веб-разработке с актуальными технологиями.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="h5 text-primary mb-0">800 ₽</span>
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-star-fill me-1"></i>4.7
+                                    </span>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" onclick="openProductModal(4)">
+                                        <i class="bi bi-eye me-1"></i>Подробнее
+                                    </button>
+                                    <button class="btn btn-success" disabled>
+                                        <i class="bi bi-check-lg me-1"></i>В корзине
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 - Best Seller -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card shadow-sm h-100">
+                        <span class="discount-badge badge bg-warning text-dark">ХИТ ПРОДАЖ</span>
+                        <img src="../images/goods5.jpg" class="card-img-top product-img" alt="Наушники">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Беспроводные наушники</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                                Качественные наушники с шумоподавлением и длительной работой от батареи.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="h5 text-primary mb-0">3500 ₽</span>
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-star-fill me-1"></i>4.8
+                                    </span>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" onclick="openProductModal(5)">
+                                        <i class="bi bi-eye me-1"></i>Подробнее
+                                    </button>
+                                    <button class="btn btn-outline-success" onclick="addToCart(5)">
+                                        <i class="bi bi-cart-plus me-1"></i>В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 - Free Shipping -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card product-card shadow-sm h-100">
+                        <span class="new-badge badge bg-info">
+                            <i class="bi bi-truck me-1"></i>БЕСПЛАТНАЯ ДОСТАВКА
+                        </span>
+                        <img src="../images/goods6.jpg" class="card-img-top product-img" alt="Флешка">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">USB флешка 128GB</h5>
+                            <p class="card-text text-muted flex-grow-1">
+                                Высокоскоростная флешка с большим объемом памяти и надежной защитой данных.
+                            </p>
+                            <div class="mt-auto">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="h5 text-primary mb-0">1200 ₽</span>
+                                    <span class="badge bg-warning text-dark">
+                                        <i class="bi bi-star-fill me-1"></i>4.5
+                                    </span>
+                                </div>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-primary" onclick="openProductModal(6)">
+                                        <i class="bi bi-eye me-1"></i>Подробнее
+                                    </button>
+                                    <button class="btn btn-outline-success" onclick="addToCart(6)">
+                                        <i class="bi bi-cart-plus me-1"></i>В корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav class="mt-5">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Предыдущая</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Следующая</a>
+                    </li>
+                </ul>
+            </nav>
         </main>
 
-        <!-- Модальное окно товара -->
-        <dialog class="modal" id="productModal">
-            <div class="modal__header">
-                <h2 class="modal__header__title">Информация о товаре</h2>
-            </div>
-
-            <div class="modal__content">
-                <img id="modalProductImage" src="" alt="" class="good-card__image good-card__image--modal">
-                
-                <div class="modal__product-info">
-                    <h3 id="modalProductName" class="modal__product-name"></h3>
-                    <p id="modalProductPrice" class="modal__product-price"></p>
-                </div>
-
-                <p id="modalProductDescription" class="modal__product-description"></p>
-
-                <div class="modal__product-features">
-                    <h4 class="modal__features-title">Особенности:</h4>
-                    <ul id="modalProductFeatures" class="modal__features-list"></ul>
-                </div>
-
-                <div class="modal__actions">
-                    <button type="button" class="btn btn--secondary" onclick="closeProductModal()">Закрыть</button>
-                    <button type="button" class="btn btn--primary" onclick="buyProduct()">Купить сейчас</button>
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-4 mt-5">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="mb-0">&copy; 2025 Портфолио Болотаева Артёма. Все права защищены.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <a href="contacts.html" class="text-white text-decoration-none me-3">Контакты</a>
+                        <a href="#" class="text-white text-decoration-none">Политика конфиденциальности</a>
+                    </div>
                 </div>
             </div>
-        </dialog>
-
-        <footer class="footer">
-            <p class="footer__text">© 2025 Портфолио Болотаева Артёма</p>
         </footer>
     </div>
 
-    <script>
-        // Переключатель темы
-        const themeSwitcher = document.getElementById('themeSwitcher');
-        const themeIcon = themeSwitcher.querySelector('.theme-switcher__icon');
-        const themeText = themeSwitcher.querySelector('.theme-switcher__text');
-        
-        themeSwitcher.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            
-            if (newTheme === 'dark') {
-                themeIcon.textContent = '☀️';
-                themeText.textContent = 'Светлая тема';
-            } else {
-                themeIcon.textContent = '🌙';
-                themeText.textContent = 'Тёмная тема';
-            }
-            
-            localStorage.setItem('theme', newTheme);
-        });
-        
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        
-        if (savedTheme === 'dark') {
-            themeIcon.textContent = '☀️';
-            themeText.textContent = 'Светлая тема';
-        }
+    <!-- Product Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title" id="modalProductName">Информация о товаре</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="modalProductImage" src="" alt="" class="img-fluid rounded">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 id="modalProductTitle" class="text-primary"></h4>
+                            <div class="mb-3">
+                                <span id="modalProductPrice" class="h5 text-primary"></span>
+                                <span id="modalProductOldPrice" class="text-muted text-decoration-line-through ms-2"></span>
+                            </div>
+                            <div class="mb-3">
+                                <span class="badge bg-warning text-dark">
+                                    <i class="bi bi-star-fill me-1"></i>
+                                    <span id="modalProductRating"></span>
+                                </span>
+                                <span class="badge bg-secondary ms-2">
+                                    <span id="modalProductReviews"></span> отзывов
+                                </span>
+                            </div>
+                            <p id="modalProductDescription" class="text-muted"></p>
+                            
+                            <div class="mb-3">
+                                <h6>Характеристики:</h6>
+                                <ul id="modalProductFeatures" class="list-unstyled"></ul>
+                            </div>
 
-        // Данные товаров
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-lg" onclick="buyNow()">
+                                    <i class="bi bi-lightning-fill me-1"></i>Купить сейчас
+                                </button>
+                                <button class="btn btn-outline-success" onclick="addToCartFromModal()">
+                                    <i class="bi bi-cart-plus me-1"></i>Добавить в корзину
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Product data
         const products = {
             1: {
-                name: 'Мармеладки',
-                price: '1000 руб.',
+                title: 'Мармеладки ручной работы',
+                price: '1000 ₽',
+                oldPrice: '1500 ₽',
                 image: '../images/goods1.jpg',
+                rating: '4.8',
+                reviews: '24',
                 description: 'Вкусные мармеладки ручной работы. Изготовлены из натуральных ингредиентов без искусственных красителей. Идеальный подарок для сладкоежек!',
-                features: ['Натуральные ингредиенты', 'Без искусственных красителей', 'Разные вкусы', 'Подарочная упаковка'],
-                oldPrice: '1500 руб.'
+                features: ['Натуральные ингредиенты', 'Без искусственных красителей', 'Разные вкусы', 'Подарочная упаковка']
             },
             2: {
-                name: 'Чайник',
-                price: '1500 руб.',
+                title: 'Электрический чайник',
+                price: '1500 ₽',
                 image: '../images/goods2.jpg',
+                rating: '4.6',
+                reviews: '18',
                 description: 'Современный электрический чайник с функцией поддержания температуры. Быстрый нагрев, безопасность использования и стильный дизайн.',
                 features: ['Электрический', 'Поддержание температуры', 'Быстрый нагрев', 'Безопасный']
             },
             3: {
-                name: 'Баленсочка',
-                price: '2000 руб.',
+                title: 'Тёплая баленсочка',
+                price: '2000 ₽',
                 image: '../images/goods3.jpg',
+                rating: '4.9',
+                reviews: '31',
                 description: 'Уютная баленсочка из натуральной шерсти. Отлично подходит для холодных вечеров. Доступна в разных размерах и цветах.',
                 features: ['Натуральная шерсть', 'Разные размеры', 'Уютная и теплая', 'Качественная вязка']
             },
             4: {
-                name: 'Книга по программированию',
-                price: '800 руб.',
+                title: 'Книга по программированию',
+                price: '800 ₽',
                 image: '../images/goods4.jpg',
+                rating: '4.7',
+                reviews: '15',
                 description: 'Современное руководство по веб-разработке. Актуальные технологии и лучшие практики для начинающих и опытных разработчиков.',
                 features: ['Актуальные технологии', 'Практические примеры', 'Лучшие практики', 'Для всех уровней']
+            },
+            5: {
+                title: 'Беспроводные наушники',
+                price: '3500 ₽',
+                image: '../images/goods5.jpg',
+                rating: '4.8',
+                reviews: '42',
+                description: 'Качественные беспроводные наушники с активным шумоподавлением. Длительная работа от батареи и премиальное качество звука.',
+                features: ['Активное шумоподавление', '30 часов работы', 'Bluetooth 5.0', 'Водостойкость']
+            },
+            6: {
+                title: 'USB флешка 128GB',
+                price: '1200 ₽',
+                image: '../images/goods6.jpg',
+                rating: '4.5',
+                reviews: '28',
+                description: 'Высокоскоростная USB 3.0 флешка с объемом памяти 128GB. Надежное хранение данных с защитой от перепадов напряжения.',
+                features: ['USB 3.0', '128GB памяти', 'Высокая скорость', 'Защита данных']
             }
         };
 
-        // Открытие модального окна товара
+        let currentProductId = null;
+
         function openProductModal(productId) {
             const product = products[productId];
             if (!product) return;
 
-            const modal = document.getElementById('productModal');
-            document.getElementById('modalProductName').textContent = product.name;
+            currentProductId = productId;
+            
+            document.getElementById('modalProductTitle').textContent = product.title;
             document.getElementById('modalProductPrice').textContent = product.price;
             document.getElementById('modalProductImage').src = product.image;
-            document.getElementById('modalProductImage').alt = product.name;
+            document.getElementById('modalProductImage').alt = product.title;
+            document.getElementById('modalProductRating').textContent = product.rating;
+            document.getElementById('modalProductReviews').textContent = product.reviews;
             document.getElementById('modalProductDescription').textContent = product.description;
             
-            // Очищаем и заполняем список особенностей
+            // Handle old price
+            const oldPriceElement = document.getElementById('modalProductOldPrice');
+            if (product.oldPrice) {
+                oldPriceElement.textContent = product.oldPrice;
+                oldPriceElement.style.display = 'inline';
+            } else {
+                oldPriceElement.style.display = 'none';
+            }
+            
+            // Fill features
             const featuresList = document.getElementById('modalProductFeatures');
             featuresList.innerHTML = '';
             product.features.forEach(feature => {
                 const li = document.createElement('li');
-                li.textContent = feature;
-                li.className = 'modal__feature-item';
+                li.className = 'mb-1';
+                li.innerHTML = `<i class="bi bi-check-circle-fill text-success me-2"></i>${feature}`;
                 featuresList.appendChild(li);
             });
             
-            modal.showModal();
+            const modal = new bootstrap.Modal(document.getElementById('productModal'));
+            modal.show();
         }
 
-        function closeProductModal() {
-            document.getElementById('productModal').close();
+        function addToCart(productId) {
+            const product = products[productId];
+            if (product) {
+                showAlert(`Товар "${product.title}" добавлен в корзину!`, 'success');
+            }
         }
 
-        function buyProduct() {
-            const productName = document.getElementById('modalProductName').textContent;
-            const productPrice = document.getElementById('modalProductPrice').textContent;
+        function addToCartFromModal() {
+            if (currentProductId) {
+                addToCart(currentProductId);
+                const modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
+                modal.hide();
+            }
+        }
+
+        function buyNow() {
+            if (currentProductId) {
+                const product = products[currentProductId];
+                showAlert(`Спасибо за покупку! Товар "${product.title}" будет доставлен в ближайшее время.`, 'info');
+                const modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
+                modal.hide();
+            }
+        }
+
+        function showAlert(message, type) {
+            const alertClass = type === 'success' ? 'alert-success' : 'alert-info';
+            const alertHtml = `
+                <div class="alert ${alertClass} alert-dismissible fade show position-fixed top-0 end-0 m-3" style="z-index: 1060;">
+                    ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', alertHtml);
             
-            alert(`Спасибо за покупку! Товар "${productName}" за ${productPrice} добавлен в корзину.`);
-            closeProductModal();
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                const alert = document.querySelector('.alert');
+                if (alert) {
+                    alert.remove();
+                }
+            }, 3000);
         }
-
-        // Обработчики событий для карточек товаров
-        document.querySelectorAll('.good-card__details').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const productId = this.closest('.good-card').getAttribute('data-product-id');
-                openProductModal(productId);
-            });
-        });
-
-        document.querySelectorAll('.good-card__buy:not(:disabled)').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const productCard = this.closest('.good-card');
-                const productId = productCard.getAttribute('data-product-id');
-                const product = products[productId];
-                
-                if (product) {
-                    // Добавляем класс выбранного товара
-                    productCard.classList.add('good-card--selected');
-                    this.textContent = 'В корзине';
-                    this.disabled = true;
-                    
-                    alert(`Товар "${product.name}" добавлен в корзину!`);
-                }
-            });
-        });
-
-        // Открытие модального окна при клике на карточку
-        document.querySelectorAll('.good-card:not(.good-card--out-of-stock)').forEach(card => {
-            card.addEventListener('click', function() {
-                const productId = this.getAttribute('data-product-id');
-                openProductModal(productId);
-            });
-        });
-
-        // Закрытие модального окна
-        document.getElementById('productModal').addEventListener('click', function(event) {
-            if (event.target === this) {
-                this.close();
-            }
-        });
-
-        document.getElementById('productModal').addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                this.close();
-            }
-        });
-
-        // Имитация выбора товара при загрузке (для демонстрации)
-        document.addEventListener('DOMContentLoaded', function() {
-            const selectedCard = document.querySelector('.good-card--selected');
-            if (selectedCard) {
-                const buyButton = selectedCard.querySelector('.good-card__buy');
-                if (buyButton) {
-                    buyButton.textContent = 'В корзине';
-                    buyButton.disabled = true;
-                }
-            }
-        });
     </script>
 </body>
 </html>
