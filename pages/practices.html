@@ -8,8 +8,11 @@
 </head>
 <body>
     <div class="page-container">
-        <div class="header">Хэдер</div>
-        <div class="nav">
+        <header class="header">
+            <h1>Портфолио</h1>
+        </header>
+
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
@@ -17,20 +20,33 @@
                 <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
                 <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
             </ul>
-        </div>
-        <div class="content">
+        </nav>
+
+        <main class="content">
             <h1 class="page-title">Практические работы</h1>
             
-            <div class="practices-container">
+            <section class="practices-container">
                 <p>Здесь будут размещены практические работы по дисциплине.</p>
-                <ul class="practices-list">
-                    <li class="practice-item">Практическая работа 1</li>
-                    <li class="practice-item">Практическая работа 2</li>
-                    <li class="practice-item">Практическая работа 3</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer">Футер</div>
+                
+                <div class="practices-grid">
+                    <article class="practice-card">
+                        <h2 class="practice-title">Практическая работа 1</h2>
+                    </article>
+                    
+                    <article class="practice-card">
+                        <h2 class="practice-title">Практическая работа 2</h2>
+                    </article>
+                    
+                    <article class="practice-card">
+                        <h2 class="practice-title">Практическая работа 3</h2>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 Портфолио Болотаева Артёма</p>
+        </footer>
     </div>
 </body>
 </html>
