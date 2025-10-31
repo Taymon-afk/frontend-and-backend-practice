@@ -5,11 +5,180 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Товары - Семестровая работа</title>
     <link rel="stylesheet" href="../style/styles.css">
+    <style>
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.6);
+            animation: fadeIn 0.3s ease;
+        }
+
+        dialog {
+            border: none;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+            max-width: 600px;
+            width: 90vw;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px 12px 0 0;
+            margin: 0;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .modal-content {
+            padding: 2rem;
+        }
+
+        .product-modal-image {
+            width: 100%;
+            max-width: 300px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 3px solid #f8f9fa;
+        }
+
+        .product-modal-info {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-modal-name {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin: 0 0 0.5rem 0;
+            font-weight: 600;
+        }
+
+        .product-modal-price {
+            font-size: 1.5rem;
+            color: #e74c3c;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+        }
+
+        .product-modal-description {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin: 0 0 1.5rem 0;
+            text-align: left;
+        }
+
+        .product-modal-features {
+            margin-bottom: 2rem;
+        }
+
+        .product-modal-features h4 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-modal-features ul {
+            color: #7f8c8d;
+            padding-left: 1.5rem;
+            margin: 0;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #f8f9fa;
+            color: #2c3e50;
+            border: 2px solid #e9ecef;
+        }
+
+        .btn-secondary:hover {
+            background: #e9ecef;
+        }
+
+        .product-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            dialog {
+                margin: 1rem;
+                width: calc(100vw - 2rem);
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="page-container">
-        <div class="header">Хэдер</div>
-        <div class="nav">
+        <header class="header">
+            <h1>Портфолио</h1>
+        </header>
+
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="../index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="news.html">Новости</a></li>
@@ -17,31 +186,108 @@
                 <li class="nav-item"><a class="nav-link" href="goods.html">Товары</a></li>
                 <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
             </ul>
-        </div>
-        <div class="content">
+        </nav>
+
+        <main class="content">
             <h1 class="page-title">Каталог товаров</h1>
             
-            <div class="products-container">
-                <div class="product-card">
-                    <img src="../images/goods1.jpg" alt="Товар 1" class="product-image">
-                    <h3 class="product-title">Мармеладки</h3>
-                    <p class="product-price">Цена: 1000 руб.</p>
-                </div>
+            <section class="products-grid">
+                <article class="product-card" onclick="openProductModal('Мармеладки', '1000 руб.', '../images/goods1.jpg', 'Вкусные мармеладки ручной работы. Изготовлены из натуральных ингредиентов без искусственных красителей. Идеальный подарок для сладкоежек!', ['Натуральные ингредиенты', 'Без искусственных красителей', 'Разные вкусы', 'Подарочная упаковка'])">
+                    <img src="../images/goods1.jpg" alt="Мармеладки" class="product-image">
+                    <h2 class="product-name">Мармеладки</h2>
+                    <p class="product-price">1000 руб.</p>
+                </article>
                 
-                <div class="product-card">
-                    <img src="../images/goods2.jpg" alt="Товар 2" class="product-image">
-                    <h3 class="product-title">Чайник</h3>
-                    <p class="product-price">Цена: 1500 руб.</p>
-                </div>
+                <article class="product-card" onclick="openProductModal('Чайник', '1500 руб.', '../images/goods2.jpg', 'Современный электрический чайник с функцией поддержания температуры. Быстрый нагрев, безопасность использования и стильный дизайн.', ['Электрический', 'Поддержание температуры', 'Быстрый нагрев', 'Безопасный'])">
+                    <img src="../images/goods2.jpg" alt="Чайник" class="product-image">
+                    <h2 class="product-name">Чайник</h2>
+                    <p class="product-price">1500 руб.</p>
+                </article>
                 
-                <div class="product-card">
-                    <img src="../images/goods3.jpg" alt="Товар 3" class="product-image">
-                    <h3 class="product-title">Баленсочка</h3>
-                    <p class="product-price">Цена: 2000 руб.</p>
+                <article class="product-card" onclick="openProductModal('Баленсочка', '2000 руб.', '../images/goods3.jpg', 'Уютная баленсочка из натуральной шерсти. Отлично подходит для холодных вечеров. Доступна в разных размерах и цветах.', ['Натуральная шерсть', 'Разные размеры', 'Уютная и теплая', 'Качественная вязка'])">
+                    <img src="../images/goods3.jpg" alt="Баленсочка" class="product-image">
+                    <h2 class="product-name">Баленсочка</h2>
+                    <p class="product-price">2000 руб.</p>
+                </article>
+            </section>
+        </main>
+
+        <dialog id="productModal">
+            <div class="modal-header">
+                <h2>Информация о товаре</h2>
+            </div>
+
+            <div class="modal-content">
+                <img id="modalProductImage" src="" alt="" class="product-modal-image">
+                
+                <div class="product-modal-info">
+                    <h3 id="modalProductName" class="product-modal-name"></h3>
+                    <p id="modalProductPrice" class="product-modal-price"></p>
+                </div>
+
+                <p id="modalProductDescription" class="product-modal-description"></p>
+
+                <div class="product-modal-features">
+                    <h4>Особенности:</h4>
+                    <ul id="modalProductFeatures"></ul>
+                </div>
+
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeProductModal()">Закрыть</button>
+                    <button type="button" class="btn btn-primary" onclick="buyProduct()">Купить сейчас</button>
                 </div>
             </div>
-        </div>
-        <div class="footer">Футер</div>
+        </dialog>
+
+        <footer class="footer">
+            <p>© 2025 Портфолио Болотаева Артёма</p>
+        </footer>
     </div>
+
+    <script>
+        function openProductModal(name, price, image, description, features) {
+            const modal = document.getElementById('productModal');
+            document.getElementById('modalProductName').textContent = name;
+            document.getElementById('modalProductPrice').textContent = price;
+            document.getElementById('modalProductImage').src = image;
+            document.getElementById('modalProductImage').alt = name;
+            document.getElementById('modalProductDescription').textContent = description;
+            
+            // Очищаем и заполняем список особенностей
+            const featuresList = document.getElementById('modalProductFeatures');
+            featuresList.innerHTML = '';
+            features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+            
+            modal.showModal();
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').close();
+        }
+
+        function buyProduct() {
+            const productName = document.getElementById('modalProductName').textContent;
+            const productPrice = document.getElementById('modalProductPrice').textContent;
+            
+            alert(`Спасибо за покупку! Товар "${productName}" за ${productPrice} добавлен в корзину.`);
+            closeProductModal();
+        }
+
+        document.getElementById('productModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                this.close();
+            }
+        });
+
+        document.getElementById('productModal').addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                this.close();
+            }
+        });
+    </script>
 </body>
 </html>
