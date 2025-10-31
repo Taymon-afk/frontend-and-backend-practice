@@ -130,7 +130,6 @@ body {
   margin: 0;
 }
 
-/* Переключатель темы (ЗАДАЧА 4) */
 .theme-switcher {
   position: absolute;
   top: 50%;
@@ -153,7 +152,6 @@ body {
   transform: translateY(-50%) scale(1.05);
 }
 
-/* ===== БЛОК NAV ===== */
 .nav {
   background: var(--color-secondary-hover);
   padding: var(--space-md) 0;
@@ -225,7 +223,6 @@ body {
   width: 100%;
 }
 
-/* ===== БЛОК PROFILE ===== */
 .profile {
   margin-bottom: var(--space-xl);
 }
@@ -432,7 +429,6 @@ body {
   overflow: hidden;
 }
 
-/* СОСТОЯНИЯ PROJECT-CARD */
 .project-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
@@ -510,7 +506,6 @@ body {
   font-size: var(--font-size-base);
 }
 
-/* ===== КОМПОНЕНТ КАРТОЧКИ ТОВАРА (ЗАДАЧА 5) ===== */
 .goods__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -903,9 +898,7 @@ body {
     flex-direction: column;
   }
 }
-/* ===== ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ НОВЫХ КОМПОНЕНТОВ ===== */
 
-/* Стили для страницы новостей */
 .news__list {
     display: flex;
     flex-direction: column;
