@@ -8,8 +8,11 @@
 </head>
 <body>
     <div class="page-container">
-        <div class="header">Хэдер</div>
-        <div class="nav">
+        <header class="header"> 
+            <h1>Портфолио</h1>
+        </header>
+
+        <nav class="nav">
             <ul class="nav-list">
                 <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
                 <li class="nav-item"><a class="nav-link" href="pages/news.html">Новости</a></li>
@@ -17,45 +20,53 @@
                 <li class="nav-item"><a class="nav-link" href="pages/goods.html">Товары</a></li>
                 <li class="nav-item"><a class="nav-link" href="pages/contacts.html">Контакты</a></li>
             </ul>
-        </div>
-        <div class="content">
-            <div class="profile-header">
+        </nav>
+
+        <main class="content">
+            <article class="profile-header">
                 <h1 class="profile-title">Информация об авторе</h1>
                 <img class="profile-photo" src="images/photo.png" alt="Фото автора">
                 <h2 class="profile-name">Болотаев Артём Денисович</h2>
                 <p class="profile-group">ЭФБО-05-24</p>
-            </div>
+            </article>
             
-            <div class="about-me">
-                <h4>Обо мне:</h4>
+            <section class="about-me">
+                <h2>Обо мне</h2>
                 <p>Студент РТУ МИРЭА. Учусь на втором курсе. Хочу стать крутым фулл-стек разработчиком. Люблю программирование.</p>
-            </div>
+            </section>
 
-            <div class="skills-container">
-                <h4>Навыки:</h4>
-                <div class="skill-tag">Умный</div>
-                <div class="skill-tag">Смелый</div>
-                <div class="skill-tag">Добрый</div>
-                <div class="skill-tag">Крутой</div>
-            </div>
+            <section class="skills-container">
+                <h2>Мои навыки</h2>
+                <div class="skills-grid">
+                    <div class="skill-tag">Умный</div>
+                    <div class="skill-tag">Смелый</div>
+                    <div class="skill-tag">Добрый</div>
+                    <div class="skill-tag">Крутой</div>
+                </div>
+            </section>
             
-            <div class="experience-section">
+            <section class="experience-section">
                 <h2 class="section-title">Мой опыт работы</h2>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 1</h3>
-                    <p class="experience-desc">Репетитор по математике</p>
+                <div class="experience-grid">
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 1</h3>
+                        <p class="experience-desc">Репетитор по математике</p>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 2</h3>
+                        <p class="experience-desc">Программист</p>
+                    </article>
+                    <article class="experience-card">
+                        <h3 class="experience-title">Опыт 3</h3>
+                        <p class="experience-desc">Повар</p>
+                    </article>
                 </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 2</h3>
-                    <p class="experience-desc">Программист</p>
-                </div>
-                <div class="experience-card">
-                    <h3 class="experience-title">Опыт 3</h3>
-                    <p class="experience-desc">Повар</p>
-                </div>
-            </div>
-        </div>
-        <div class="footer">Футер</div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2025 Портфолио Болотаева Артёма</p>
+        </footer>
     </div>
 </body>
 </html>
